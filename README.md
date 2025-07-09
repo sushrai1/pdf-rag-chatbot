@@ -1,67 +1,74 @@
-# Chat with PDF
+Absolutely! Here’s the complete README.md file in one shot — copy and paste this into your repo (pdf-rag-chatbot/README.md) and commit it.
 
-This Python project that allows you to chat with a chatbot about the PDF you uploaded. and generate a PDF transcript of the conversation. The project is built using Python and Streamlit framework.
+⸻
 
 
-This is a fork from https://github.com/sudan94/chat-pdf-hugginface. I had issues install the requirements.txt, thus I removed the '==version' in requirements.txt with 
-```shell
-sed -i 's/\=.*//g' requirements.txt
-```
-Then, I added some modules that are needed for app.py that were not in requirements.txt.  
+# 🧠 PDF RAG Chatbot (LangChain + Hugging Face)
 
-A `conda` environment is used instead of `venv` virtual environment
+An AI-powered chatbot that lets you upload PDF files and ask questions about their contents using **local Hugging Face models** — completely free, offline-capable, and privacy-preserving.
 
-## Installation
+---
 
-To run this project, please follow the steps below:
+## 🚀 Features
 
-1. Clone the repository:
+- 📄 Upload any PDF and query its content
+- 🧠 Uses `flan-t5-base` model from Hugging Face (runs locally)
+- 🔎 Vector-based semantic retrieval using FAISS
+- 🔗 RAG pipeline built with LangChain
+- 💬 Streamlit chat UI with memory
+- ✅ No OpenAI or paid APIs required
 
-```shell
-git clone git@github.com:MattLondon101/chat-pdf-hugginface.git
-cd chat-pdf-hugginface
-```
+---
 
-2. Create and activate a conda virtual environment (optional but recommended):
+## 🧱 Tech Stack
 
-```shell
-conda create -n env1 python=3.10
-conda activate env1
-```
+| Component     | Tool/Library                 |
+|---------------|------------------------------|
+| LLM           | Hugging Face Transformers (`flan-t5-base`) |
+| RAG Chain     | LangChain                    |
+| Embeddings    | `sentence-transformers`      |
+| Vector Store  | FAISS                        |
+| PDF Parsing   | PyPDF2                       |
+| Frontend UI   | Streamlit                    |
 
-3. Install the dependencies from the `requirements.txt` file:
+---
 
-```shell
+## 📂 Project Structure
+
+pdf-rag-chatbot/
+│
+├── app.py               # Streamlit app entry point
+├── requirements.txt     # Python dependencies
+├── .env.example         # Example env file (token optional)
+├── README.md            # This file
+└── .idea/               # (Optional) IDE config files
+
+---
+
+## ▶️ How to Run Locally
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/sushrai1/pdf-rag-chatbot.git
+cd pdf-rag-chatbot
+
+# 2. Set up a virtual environment
+python3 -m venv env
+source env/bin/activate  # For Windows: .\env\Scripts\activate
+
+# 3. Install dependencies
 pip install -r requirements.txt
-```
 
-4. You will need a HUGGINGFACEHUB_API_TOKEN for this next step. To obtain one for free, got to https://huggingface.co/ and Sign Up for a free account. Then, go to Settings > Access Tokens. Create a New token. Then, create a file in this directory, name is `.env` and enter `HUGGINGFACEHUB_API_TOKEN = "token"`,  replacing `token` with your User Access Token. Save the `.env` file. The `.gitignore` file will ignore the `.env` for git operation.
-
-## Running the Project
-
-Once you have installed the required dependencies, you can run the project using Streamlit, which should have been installed with `requirements.txt`. Streamlit provides an easy way to create interactive web applications in Python.
-
-To start the application, run the following command:
-
-```shell
+# 4. Launch the chatbot
 streamlit run app.py
-```
 
-This will start the Streamlit server and open the application in your default web browser..  
+Then open your browser and visit:
+👉 http://localhost:8501
 
-### Git flow
-`.gitit.sh` can be used for easy pushing updates to remote repo.  
 
-Activate with:  
-```shell
-chmod +x .gitit.sh
-```
-Then, to add, commit, and push to remote repo:
-```
-./gitit.sh
-```
+✅ Use Cases
+	•	Extracting insights from placement brochures
+	•	Understanding academic PDFs or technical reports
+	•	Local document QA assistant (fully private)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
+=
